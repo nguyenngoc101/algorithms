@@ -1,8 +1,6 @@
 package hackerrank.algorithms;
 
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class TimeConversion {
 
