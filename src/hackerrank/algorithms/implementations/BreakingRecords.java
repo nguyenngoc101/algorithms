@@ -17,12 +17,10 @@ public class BreakingRecords {
             if(current > max) {
                 max = current;
                 countMax++;
-                System.out.println("max: "+i);
             }
             if (current < min) {
                 min = current;
                 countMin++;
-                System.out.println("min: "+i);
             }
         }
         System.out.println(countMax + " "+countMin);
