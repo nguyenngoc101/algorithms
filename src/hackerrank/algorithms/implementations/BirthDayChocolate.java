@@ -26,7 +26,6 @@ public class BirthDayChocolate {
                 count++;
             }
         }
-
         System.out.println(count);
     }
 
