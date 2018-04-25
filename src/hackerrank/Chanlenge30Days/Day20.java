@@ -1,37 +1,36 @@
 package hackerrank.Chanlenge30Days;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Day20 {
-
-    public static void main(String args[]){
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        Integer[] intArray = new Integer[n];
-        for (int i = 0; i < n; i++) {
-            intArray[i] = scanner.nextInt();
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] a = new int[n];
+        for(int a_i=0; a_i < n; a_i++){
+            a[a_i] = in.nextInt();
         }
-
-        n = scanner.nextInt();
-        String[] stringArray = new String[n];
-        for (int i = 0; i < n; i++) {
-            stringArray[i] = scanner.next();
-        }
-
-        Printer<Integer> intPrinter = new Printer<Integer>();
-        Printer<String> stringPrinter = new Printer<String>();
-        intPrinter.printArray( intArray  );
-        stringPrinter.printArray( stringArray );
-        if(Printer.class.getDeclaredMethods().length > 1){
-            System.out.println("The Printer class should only have 1 method named printArray.");
-        }
+        System.out.println("Array is sorted in " + sort(a) + " swaps.");
+        System.out.println("First Element: " + a[0]);
+        System.out.println("Last Element: " +a[a.length-1]);
     }
 
-    static class Printer <T> {
+    public static int sort(int[] a){
+        int numberOfSwaps = 0;
+        for(int i= 0; i< a.length; i++){
+            for (int j= 0; j< a.length-i-1; j++){
+                if(a[j] > a[j+1]){
+                    int tem = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = tem;
+                    numberOfSwaps++;
+                }
+            }
 
-        public void printArray(T[] arr) {
-            Arrays.stream(arr).forEach(System.out::println);
+            if (numberOfSwaps == 0) {
+                break;
+            }
         }
+        return numberOfSwaps;
     }
 }
