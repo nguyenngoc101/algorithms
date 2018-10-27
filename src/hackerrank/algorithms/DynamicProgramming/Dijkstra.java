@@ -1,10 +1,13 @@
 package hackerrank.algorithms.DynamicProgramming;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-public class BellmanFord {
+public class Dijkstra {
 
     private static final int INF = 999;
 
@@ -35,27 +38,41 @@ public class BellmanFord {
             }
         }
         scanner.close();
-        System.out.println(Arrays.stream(bellmanFord(n, d)).boxed()
+        System.out.println(Arrays.stream(dijkstra(n, d)).boxed()
                 .map(e -> String.valueOf(e))
                 .collect(Collectors.joining(" ")));
 
     }
 
     // Shortest paths
-    public static int[] bellmanFord(int n, int[][] d) {
+    public static int[] dijkstra(int n, int[][] d) {
         int s[] = new int[n];
+        List<Integer> v = IntStream.range(0, n).boxed().collect(Collectors.toList());
         for (int i = 1; i < n; i++) {
             s[i] = d[0][i];
         }
-        for (int k = 0; k < n; k++) {
+        while (!v.isEmpty()) {
+            int candidate = candidate(s, v);
+            // traverse neighbors of the candidate
             for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    if ( i != j && d[i][j] != INF && s[i] > s[j] + d[j][i]) {
-                        s[i] = s[j] + d[j][i];
-                    }
+                if (d[candidate][i] != INF && s[i] > s[candidate] + d[candidate][i]) {
+                    s[i] = s[candidate] + d[candidate][i];
                 }
             }
+            v.remove(v.indexOf(candidate));
         }
         return s;
+    }
+
+    public static int candidate(int[] s, List<Integer> v) {
+        int min = INF;
+        int position = 0;
+        for (int i = 0; i < s.length; i++) {
+            if (v.contains(i) && min > s[i]) {
+                min = s[i];
+                position = i;
+            }
+        }
+        return position;
     }
 }
