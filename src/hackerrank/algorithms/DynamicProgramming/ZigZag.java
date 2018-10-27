@@ -1,6 +1,5 @@
 package hackerrank.algorithms.DynamicProgramming;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ZigZag {
@@ -17,7 +16,6 @@ public class ZigZag {
             }
         }
         scanner.close();
-
         System.out.println(zigzag(n, m, a));
     }
 
@@ -33,8 +31,6 @@ public class ZigZag {
                 if (max < s[i][j]) max = s[i][j];
             }
         }
-
-
         return max;
     }
 }
