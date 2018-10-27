@@ -38,10 +38,10 @@ public class Dijkstra {
             }
         }
         scanner.close();
-        System.out.println(Arrays.stream(dijkstra(n, d)).boxed()
+        System.out.println(Arrays.stream(dijkstra(n, d))
+                .boxed()
                 .map(e -> String.valueOf(e))
                 .collect(Collectors.joining(" ")));
-
     }
 
     // Shortest paths

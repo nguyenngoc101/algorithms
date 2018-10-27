@@ -35,10 +35,10 @@ public class BellmanFord {
             }
         }
         scanner.close();
-        System.out.println(Arrays.stream(bellmanFord(n, d)).boxed()
+        System.out.println(Arrays.stream(bellmanFord(n, d))
+                .boxed()
                 .map(e -> String.valueOf(e))
                 .collect(Collectors.joining(" ")));
-
     }
 
     // Shortest paths
