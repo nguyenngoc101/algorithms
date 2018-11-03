@@ -2,7 +2,7 @@ package interview.arrays;
 
 import java.util.Scanner;
 
-public class MinSwap {
+public class InsertionSort {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
