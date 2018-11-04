@@ -1,6 +1,7 @@
 package interview.hashtable;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class RansomNote {
@@ -12,7 +13,7 @@ public class RansomNote {
         String magazine = scanner.nextLine();
         String note = scanner.nextLine();
         Map<String, Long> magazines = Arrays.stream(magazine.split(" "))
-                .collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         boolean canCopy = true;
         for (String word : note.split(" ")) {
             Long appears = magazines.get(word);
