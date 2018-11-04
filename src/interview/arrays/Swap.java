@@ -4,23 +4,22 @@ import java.util.Scanner;
 
 public class Swap {
 
-    static int minimumSwaps(int[] arr) {
+    static int minimumSwaps(int[] a) {
         int swap=0;
-        boolean visited[]=new boolean[arr.length];
-
-        for(int i=0;i<arr.length;i++){
-            int j=i,cycle=0;
-
-            while(!visited[j]){
-                visited[j]=true;
-                j=arr[j]-1;
-                cycle++;
+        for(int i=0;i<a.length;i++){
+            if(i+1!=a[i]){
+                int t=i;
+                while(a[t]!=i+1){
+                    t++;
+                }
+                int temp=a[t];
+                a[t]=a[i];
+                a[i]=temp;
+                swap++;
             }
-
-            if(cycle!=0)
-                swap+=cycle-1;
         }
         return swap;
+
     }
 
     public static void main(String[] args) {
