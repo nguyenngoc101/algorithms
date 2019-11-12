@@ -1,6 +1,6 @@
 package crackingcodinginterview.stringandarrays;
 
-public class UniqueCharacter {
+public class StringArray {
 
     public static void main(String[] args) {
 //        System.out.println(isUnique("123456"));

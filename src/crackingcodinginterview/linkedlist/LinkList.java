@@ -1,4 +1,4 @@
-package crackingcodinginterview.stringandarrays;
+package crackingcodinginterview.linkedlist;
 
 import static java.util.Arrays.asList;
 
